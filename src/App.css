@@ -1,0 +1,27 @@
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: clip;
+}
+
+.app-layout > main {
+  flex: 1;
+}
+
+.not-found {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 8rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.not-found h1 {
+  color: var(--navy);
+  font-size: 2.25rem;
+  letter-spacing: -0.02em;
+}

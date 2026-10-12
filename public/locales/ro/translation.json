@@ -1,0 +1,21 @@
+{
+  "header": {
+    "acasa": "Acasă",
+    "proprietati": "Proprietăți",
+    "despre": "Despre Noi",
+    "contact": "Contact"
+  },
+  "despre": {
+    "hero": {
+      "titlu": "Despre East8",
+      "subtitlu": "Expertiză și Integritate în Imobiliarele Premium"
+    },
+    "viziune": {
+      "titlu": "Viziunea Noastră",
+      "text": "Încă din 2004, consultanții Premium East8 s-au specializat pe segmentul de birouri și spații comerciale. Astăzi, echipa are o experiență vastă pe piața clădirilor de birouri din București și oferă consultanță imobiliară la cele mai înalte standarde."
+    },
+    "timeline": {
+      "titlu": "Cum ne-am dezvoltat"
+    }
+  }
+}

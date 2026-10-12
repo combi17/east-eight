@@ -1,0 +1,21 @@
+{
+  "header": {
+    "acasa": "Home",
+    "proprietati": "Properties",
+    "despre": "About Us",
+    "contact": "Contact"
+  },
+  "despre": {
+    "hero": {
+      "titlu": "About East8",
+      "subtitlu": "Expertise and Integrity in Premium Real Estate"
+    },
+    "viziune": {
+      "titlu": "Our Vision",
+      "text": "Since 2004, Premium East8 consultants have specialised in office and retail space. Today the team has extensive experience in the Bucharest office market and provides real estate advisory to the highest standards."
+    },
+    "timeline": {
+      "titlu": "How We've Grown"
+    }
+  }
+}

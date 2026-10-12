@@ -1,0 +1,291 @@
+.dubai-section {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 5rem 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -1px;
+}
+
+.dubai-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dubai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+  gap: 2rem;
+}
+
+.dubai-header-content {
+  flex: 1;
+}
+
+
+.dubai-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+}
+
+.dubai-subtitle {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0;
+}
+
+.dubai-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  color: #2c3e50;
+  padding: 1rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  white-space: nowrap;
+}
+
+.dubai-view-all:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+  background: #f8f9fa;
+}
+
+.dubai-properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.dubai-property-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.dubai-property-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #D4AF37 0%, #F4D03F 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.dubai-property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.dubai-property-card:hover::before {
+  opacity: 1;
+}
+
+.dubai-card-image-wrapper {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.dubai-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dubai-property-card:hover .dubai-card-image {
+  transform: scale(1.1);
+}
+
+.dubai-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 50%);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+
+.dubai-location-badge {
+  background: rgba(212, 175, 55, 0.95);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dubai-card-content {
+  padding: 1.5rem;
+}
+
+.dubai-card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 0.75rem 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dubai-card-location {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #6c757d;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.dubai-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.dubai-card-details {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  color: #6c757d;
+  font-size: 0.85rem;
+}
+
+.dubai-card-details span {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.dubai-card-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #D4AF37;
+}
+
+.dubai-cta-banner {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+  border-radius: 20px;
+  padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.dubai-cta-content h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: white;
+  margin: 0 0 0.5rem 0;
+}
+
+.dubai-cta-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+.dubai-cta-button {
+  background: #e3be46;
+  color: white;
+  padding: 1.1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+}
+
+.dubai-cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(178, 145, 38, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .dubai-properties-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .dubai-section {
+    padding: 3rem 0;
+  }
+
+  .dubai-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .dubai-title {
+    font-size: 2rem;
+  }
+
+  .dubai-subtitle {
+    font-size: 1rem;
+  }
+
+  .dubai-properties-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dubai-cta-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .dubai-cta-content h3 {
+    font-size: 1.5rem;
+  }
+
+  .dubai-cta-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.flag-icon {
+  width: 16px;
+  height: auto;
+  border-radius: 3px;
+}
