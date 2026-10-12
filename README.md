@@ -16,7 +16,21 @@ Website for Premium East8, a Bucharest real estate agency that works mostly with
 - Sold and rented listings stay visible with a status badge.
 - Contact form sent through Formspree, with a GDPR consent checkbox and a privacy and terms page.
 - Romanian and English translations with i18next.
-- Light and dark themes. The site follows the system setting until the visitor picks one with the switch in the header, and the choice is saved in `localStorage`. An inline script in `index.html` sets the theme before the first paint, so there's no flash on load. Maps switch to a dark Mapbox style as well.
+- Light and dark themes, with a switch in the header (details below).
+
+## Light and dark themes
+
+| Light | Dark |
+| --- | --- |
+| ![Listings in the light theme](docs/properties.png) | ![Listings in the dark theme](docs/properties-dark.png) |
+
+- The site starts in the visitor's system theme. Once they use the switch in the header (or in the mobile menu), their choice is saved in `localStorage` and kept on later visits.
+- A small inline script in `index.html` sets the theme before the page renders, so a dark-mode visitor never sees a white flash on load.
+- Colors are semantic tokens in `src/index.css` (`--bg`, `--surface`, `--text`, `--accent` and so on), defined once for each theme. Components only use the tokens, so a theme is one block of variables.
+- The dark palette is built from the brand navy. Cards and panels get lighter as they sit higher, and text and buttons keep at least 4.5:1 contrast in both themes.
+- Switching uses the View Transitions API: the new theme spreads out in a circle from the button. Browsers without that API, and visitors with reduced motion turned on, get an instant switch.
+- Maps change to Mapbox's dark style along with the rest of the page.
+- `src/lib/theme.js` holds the theme state. It exposes a `useTheme()` hook, built on `useSyncExternalStore`, for components that need to react to the theme (the map uses it).
 
 ## Stack
 
