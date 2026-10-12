@@ -6,13 +6,13 @@ import useScrollAnimation from '../hooks/useScrollAnimation';
 import { fetchPropertiesByCity, formatPrice } from '../lib/properties';
 
 const DubaiSection = () => {
-  const titleRef = useScrollAnimation('animate__fadeInUp', 0.3);
-  const subtitleRef = useScrollAnimation('animate__fadeInUp', 0.4);
-  const bannerRef = useScrollAnimation('animate__fadeInUp', 0.2);
+  const titleRef = useScrollAnimation(0);
+  const subtitleRef = useScrollAnimation(90);
+  const bannerRef = useScrollAnimation(0);
 
-  const card1Ref = useScrollAnimation('animate__fadeInLeft', 0.2);
-  const card2Ref = useScrollAnimation('animate__fadeInLeft', 0.4);
-  const card3Ref = useScrollAnimation('animate__fadeInLeft', 0.6);
+  const card1Ref = useScrollAnimation(0);
+  const card2Ref = useScrollAnimation(100);
+  const card3Ref = useScrollAnimation(200);
 
   const cardRefs = [card1Ref, card2Ref, card3Ref];
 

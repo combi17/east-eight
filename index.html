@@ -5,7 +5,17 @@
     <link rel="icon" href="/east8_favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Premium East8 - birouri, spații comerciale și locuințe premium în București și Dubai." />
-    <meta name="theme-color" content="#1da397" />
+    <meta name="theme-color" content="#ffffff" />
+    <script>
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.dataset.theme = theme;
+      })();
+    </script>
     <title>Premium East8 - Real Estate since 2004</title>
   </head>
   <body>

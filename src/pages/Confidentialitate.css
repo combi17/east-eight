@@ -1,16 +1,16 @@
 .legal-page {
-  background: var(--light-gray);
+  background: var(--bg-alt);
   padding: 8rem 1.5rem 5rem;
 }
 
 .legal-container {
   max-width: 72ch;
   margin: 0 auto;
-  color: var(--dark-gray);
+  color: var(--text);
 }
 
 .legal-container h1 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: clamp(2rem, 4vw, 2.75rem);
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -28,18 +28,18 @@
   gap: 0.5rem;
   padding-bottom: 2rem;
   margin-bottom: 1rem;
-  border-bottom: 1px solid var(--accent-subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .legal-toc a {
   padding: 0.4rem 0.9rem;
   border-radius: 999px;
-  border: 1px solid var(--accent-subtle);
-  background: var(--white);
-  color: var(--navy);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text-strong);
   font-size: 0.9rem;
   text-decoration: none;
-  transition: border-color 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
 }
 
 .legal-toc a:hover {
@@ -53,14 +53,14 @@
 }
 
 .legal-container h2 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 1.5rem;
   letter-spacing: -0.01em;
   margin-bottom: 1rem;
 }
 
 .legal-container h3 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 1.05rem;
   margin: 1.75rem 0 0.5rem;
 }

@@ -16,6 +16,7 @@ Website for Premium East8, a Bucharest real estate agency that works mostly with
 - Sold and rented listings stay visible with a status badge.
 - Contact form sent through Formspree, with a GDPR consent checkbox and a privacy and terms page.
 - Romanian and English translations with i18next.
+- Light and dark themes. The site follows the system setting until the visitor picks one with the switch in the header, and the choice is saved in `localStorage`. An inline script in `index.html` sets the theme before the first paint, so there's no flash on load. Maps switch to a dark Mapbox style as well.
 
 ## Stack
 

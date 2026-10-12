@@ -1,6 +1,6 @@
 .despre-page-container {
   min-height: 100vh;
-  background: var(--white);
+  background: var(--bg);
   padding-top: 80px;
 }
 
@@ -12,7 +12,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  color: var(--white);
+  color: var(--on-image);
   background-size: cover;
   background-position: center 60%;
   margin-top: -80px;
@@ -41,6 +41,8 @@
   font-size: 2.8rem;
   font-weight: 700;
   line-height: 1.2;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
   margin-bottom: 1rem;
 }
 
@@ -80,14 +82,14 @@
 }
 
 .despre-section-text-card h2 {
-  color: var(--white);
+  color: var(--on-image);
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
 }
 
 .despre-section-text-card p {
-  color: var(--light-gray);
+  color: var(--on-image);
   font-size: 1rem;
   line-height: 1.8;
   margin-bottom: 0;
@@ -112,21 +114,15 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.despre-section-text-card.animate__fadeInLeft {
-  animation-delay: 0.5s;
-}
-.despre-section-image-wrapper.animate__fadeInRight {
-  animation-delay: 0.7s;
-}
-
 .despre-section {
   padding: 5rem 0;
 }
 
 .section-title {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 2rem;
   font-weight: 700;
+  letter-spacing: -0.02em;
   margin-bottom: 3rem;
   text-align: center;
   position: relative;
@@ -144,7 +140,7 @@
 
 .testimonials-section {
   padding: 5rem 0;
-  background: var(--light-gray);
+  background: var(--bg-alt);
 }
 .testimonials-grid {
   display: grid;
@@ -152,11 +148,11 @@
   gap: 2rem;
 }
 .testimonial-card {
-  background: var(--white);
+  background: var(--surface);
   padding: 2rem;
   border-radius: 12px;
-  border: 1px solid var(--accent-subtle);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
   text-align: center;
 }
 .testimonial-card:nth-child(3) {
@@ -169,8 +165,8 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: var(--accent-subtle);
-  color: var(--primary);
+  background: var(--primary-tint);
+  color: var(--primary-strong);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -179,7 +175,7 @@
   margin: 0 auto 1.5rem;
 }
 .testimonial-quote {
-  color: var(--dark-gray);
+  color: var(--text);
   font-style: italic;
   line-height: 1.7;
   margin-bottom: 1.5rem;
@@ -191,11 +187,11 @@
   align-items: center;
 }
 .author-name {
-  color: var(--navy);
+  color: var(--text-strong);
   font-weight: 600;
 }
 .author-location {
-  color: var(--dark-gray);
+  color: var(--text);
   font-size: 0.9rem;
 }
 
@@ -214,7 +210,7 @@
   content: '';
   position: absolute;
   width: 3px;
-  background-color: var(--accent-subtle);
+  background-color: var(--border);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -251,12 +247,12 @@
 
 .timeline-item-container.left::before {
   right: 30px;
-  border-left-color: var(--accent-subtle);
+  border-left-color: var(--border);
 }
 
 .timeline-item-container.right::before {
   left: 30px;
-  border-right-color: var(--accent-subtle);
+  border-right-color: var(--border);
 }
 
 .timeline-item-container::after {
@@ -271,21 +267,21 @@
 
 .timeline-item-container.left::after {
   right: 28px;
-  border-left-color: var(--white);
+  border-left-color: var(--surface);
 }
 
 .timeline-item-container.right::after {
   left: 28px;
-  border-right-color: var(--white);
+  border-right-color: var(--surface);
 }
 
 .timeline-content {
   padding: 1.5rem;
-  background: var(--white);
+  background: var(--surface);
   position: relative;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border: 1px solid var(--accent-subtle);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
 }
 
 .timeline-icon-wrapper {
@@ -294,13 +290,13 @@
   top: 25px;
   width: 48px;
   height: 48px;
-  background-color: var(--white);
-  border: 3px solid var(--accent-subtle);
+  background-color: var(--surface);
+  border: 3px solid var(--border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: background-color 0.25s var(--ease-out), border-color 0.25s var(--ease-out);
 }
 
 .timeline-item-container.left .timeline-icon-wrapper {
@@ -312,6 +308,7 @@
 
 .timeline-icon {
   color: var(--primary);
+  transition: color 0.25s var(--ease-out);
 }
 
 .timeline-item-container.left .timeline-content {
@@ -322,21 +319,21 @@
 }
 
 .timeline-year {
-  color: var(--dark-gray);
+  color: var(--text);
   font-weight: 600;
   font-size: 0.9rem;
   margin-bottom: 0.25rem;
   display: block;
 }
 .timeline-title {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  transition: color 0.3s ease;
+  transition: color 0.25s var(--ease-out);
 }
 .timeline-description {
-  color: var(--dark-gray);
+  color: var(--text);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -346,12 +343,11 @@
   background-color: var(--primary);
 }
 .timeline-item-container:hover .timeline-icon {
-  color: var(--white);
+  color: var(--on-accent);
 }
 .timeline-item-container:hover .timeline-title {
-  color: var(--primary);
+  color: var(--primary-strong);
 }
-
 
 .tranzactii-section {
   padding: 5rem 0;
@@ -375,13 +371,15 @@
   overflow: hidden;
   background-size: cover;
   background-position: center;
-  color: var(--white);
+  color: var(--on-image);
   cursor: pointer;
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
 }
 
 .tranzactie-card:hover {
-  transform: scale(1.03);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
 .tranzactie-card-overlay {
@@ -422,32 +420,33 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--scrim);
   backdrop-filter: blur(5px);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.25s var(--ease-out);
 }
 
 .modal-content {
-  background: var(--white);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
   width: 90%;
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: var(--shadow-lg);
   position: relative;
-  animation: slideInUp 0.4s ease;
+  animation: slideInUp 0.4s var(--ease-out);
 }
 
 .modal-close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: var(--accent-subtle);
+  background: var(--surface-sunken);
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -456,8 +455,13 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--dark-gray);
+  color: var(--text-strong);
   z-index: 10;
+  transition: background-color 0.2s var(--ease-out);
+}
+
+.modal-close-btn:hover {
+  background: var(--border);
 }
 
 .modal-image {
@@ -473,7 +477,7 @@
 
 .modal-title {
   font-size: 1.8rem;
-  color: var(--navy);
+  color: var(--text-strong);
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
@@ -482,7 +486,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--dark-gray);
+  color: var(--text);
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -490,25 +494,25 @@
 .modal-description {
   font-size: 1rem;
   line-height: 1.7;
-  color: var(--dark-gray);
+  color: var(--text);
   margin-bottom: 2rem;
 }
 
 .modal-cta-btn {
   display: inline-block;
   text-decoration: none;
-  background: var(--primary);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--on-accent);
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: background-color 0.2s var(--ease-out);
 }
 .modal-cta-btn:hover {
-  background: #178a7f; 
+  background: var(--accent-hover);
 }
 
 @media (max-width: 900px) {
@@ -573,13 +577,13 @@
   .timeline-item-container.left::before,
   .timeline-item-container.right::before {
     left: 60px;
-    border-right-color: var(--accent-subtle);
+    border-right-color: var(--border);
     border-left-color: transparent;
   }
   .timeline-item-container.left::after,
   .timeline-item-container.right::after {
     left: 58px;
-    border-right-color: var(--white);
+    border-right-color: var(--surface);
     border-left-color: transparent;
   }
   
@@ -604,10 +608,7 @@
   to { opacity: 1; }
 }
 @keyframes slideInUp {
-  from { transform: translateY(50px); opacity: 0; }
+  from { transform: translateY(24px); opacity: 0; }
   to { transform: translateY(0); opacity: 1; }
 }
 
-.hidden-anim {
-  opacity: 0;
-}

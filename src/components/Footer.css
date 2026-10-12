@@ -1,7 +1,19 @@
 footer {
-    background: var(--navy);
-    color: white;
+    --footer-bg: #2c3e50;
+    --footer-text: rgba(255, 255, 255, 0.8);
+    --footer-text-muted: rgba(255, 255, 255, 0.6);
+    --footer-divider: rgba(255, 255, 255, 0.1);
+    background: var(--footer-bg);
+    color: #ffffff;
     padding: 5rem 5% 2rem;
+}
+
+:root[data-theme='dark'] footer {
+    --footer-bg: #080d12;
+    --footer-text: var(--text);
+    --footer-text-muted: var(--text-muted);
+    --footer-divider: var(--border);
+    border-top: 1px solid var(--border);
 }
 
 .footer-container {
@@ -20,11 +32,11 @@ footer {
 }
 
 .footer-section p, .footer-section a {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--footer-text);
     text-decoration: none;
     margin-bottom: 0.5rem;
     display: block;
-    transition: color 0.3s ease;
+    transition: color 0.2s var(--ease-out);
 }
 
 .footer-section a:hover {
@@ -32,11 +44,11 @@ footer {
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--footer-divider);
     padding-top: 2rem;
     margin-top: 3rem;
     text-align: center;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--footer-text-muted);
 }
 
 .footer-section .footer-contact-line {

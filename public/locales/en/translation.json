@@ -3,7 +3,9 @@
     "acasa": "Home",
     "proprietati": "Properties",
     "despre": "About Us",
-    "contact": "Contact"
+    "contact": "Contact",
+    "temaIntunecata": "Dark theme",
+    "temaLuminoasa": "Light theme"
   },
   "despre": {
     "hero": {

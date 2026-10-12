@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from "react-router-dom";
 import { useTranslation } from 'react-i18next';
+import ThemeToggle from './ThemeToggle';
 import "./Header.css";
 
 const flagRoUrl = "https://flagcdn.com/w20/ro.png";
@@ -52,6 +53,9 @@ const Header = () => {
             <li><Link to="/properties" onClick={closeMenu}>{t('header.proprietati')}</Link></li>
             <li><Link to="/despre" onClick={closeMenu}>{t('header.despre')}</Link></li>
             <li><Link to="/contact" onClick={closeMenu}>{t('header.contact')}</Link></li>
+            <li className="mobile-theme-item">
+              <ThemeToggle className="theme-toggle-wide" showLabel />
+            </li>
             <li className="mobile-language-item">
               <div className="language-switcher mobile-language-switcher">
                 <button 
@@ -73,6 +77,7 @@ const Header = () => {
             </li>
           </ul>
           <div className="header-right-controls desktop-language">
+            <ThemeToggle />
             <div className="language-switcher">
               <button 
                 onClick={() => changeLanguage('ro')} 

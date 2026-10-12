@@ -29,7 +29,7 @@ const SearchCard = () => {
   return (
     <section className="hero">
       <div className="hero-content">
-        <div className="hero-text animate__animated animate__fadeInLeft">
+        <div className="hero-text reveal-on-load">
           <h1>Imobiliare <span className="highlight">Premium</span> în București</h1>
           <p>Birouri, spații comerciale și locuințe premium, cu consultanță de la prima vizionare până la semnarea contractului.</p>
           <div className="hero-buttons">
@@ -37,7 +37,7 @@ const SearchCard = () => {
             <Link to="/contact?subject=Evaluare proprietate" className="btn-secondary">Evaluare gratuită</Link>
           </div>
         </div>
-        <div className="search-widget animate__animated animate__fadeInRight">
+        <div className="search-widget reveal-on-load reveal-delay-1">
           <h3>Caută proprietatea potrivită</h3>
           <form className="search-form" onSubmit={handleSearch}>
             <div className="form-row">

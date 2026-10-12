@@ -4,9 +4,14 @@ import { MapPinOff } from 'lucide-react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { formatPrice } from '../lib/properties';
+import { getTheme, useTheme } from '../lib/theme';
 
 const MAPBOX_TOKEN = import.meta.env.VITE_MAPBOX_TOKEN;
 const BUCHAREST = [26.1025, 44.4268];
+const MAP_STYLES = {
+  light: 'mapbox://styles/mapbox/streets-v12',
+  dark: 'mapbox://styles/mapbox/dark-v11',
+};
 
 const el = (tag, className, text) => {
   const node = document.createElement(tag);
@@ -44,6 +49,8 @@ export const MapUnavailable = () => (
 
 const PropertiesMap = ({ properties, center = BUCHAREST, zoom = 12, interactivePopups = true }) => {
   const containerRef = useRef(null);
+  const mapRef = useRef(null);
+  const theme = useTheme();
   const [lng, lat] = center;
   const navigate = useNavigate();
 
@@ -53,10 +60,11 @@ const PropertiesMap = ({ properties, center = BUCHAREST, zoom = 12, interactiveP
     mapboxgl.accessToken = MAPBOX_TOKEN;
     const map = new mapboxgl.Map({
       container: containerRef.current,
-      style: 'mapbox://styles/mapbox/streets-v12',
+      style: MAP_STYLES[getTheme()],
       center: [lng, lat],
       zoom,
     });
+    mapRef.current = map;
     map.addControl(new mapboxgl.NavigationControl(), 'top-right');
 
     properties
@@ -67,14 +75,21 @@ const PropertiesMap = ({ properties, center = BUCHAREST, zoom = 12, interactiveP
             buildPopup(property, () => interactivePopups && navigate(`/properties/${property.id}`)),
           );
 
-        new mapboxgl.Marker({ color: '#1DA397' })
+        new mapboxgl.Marker({ color: '#1da397' })
           .setLngLat([property.lng, property.lat])
           .setPopup(popup)
           .addTo(map);
       });
 
-    return () => map.remove();
+    return () => {
+      mapRef.current = null;
+      map.remove();
+    };
   }, [properties, lng, lat, zoom, interactivePopups, navigate]);
+
+  useEffect(() => {
+    mapRef.current?.setStyle(MAP_STYLES[theme]);
+  }, [theme]);
 
   if (!MAPBOX_TOKEN) return <MapUnavailable />;
 

@@ -1,6 +1,6 @@
 .contact-page-container {
   min-height: 100vh;
-  background: var(--light-gray);
+  background: var(--bg-alt);
   padding-bottom: 4rem;
 }
 
@@ -18,7 +18,7 @@
   background-size: cover;
   background-position: center 40%;
   padding: 9rem 0 6rem;
-  color: var(--white);
+  color: var(--on-image);
 }
 
 .contact-hero-overlay {
@@ -55,24 +55,24 @@
   gap: 3rem;
   position: relative;
   margin-top: -3.5rem;
-  background: var(--white);
+  background: var(--surface);
   padding: 3rem;
   border-radius: 20px;
-  border: 1px solid var(--accent-subtle);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
 }
 
 .contact-form-wrapper h2 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--accent-subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .contact-form-wrapper > p {
-  color: var(--dark-gray);
+  color: var(--text);
   line-height: 1.6;
   margin-bottom: 2rem;
 }
@@ -95,7 +95,7 @@
 }
 
 .form-group label {
-  color: var(--navy);
+  color: var(--text-strong);
   font-weight: 500;
   margin-bottom: 0.5rem;
   font-size: 0.9rem;
@@ -105,18 +105,19 @@
 .form-group textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--accent-subtle);
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 1rem;
-  color: var(--dark-gray);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  color: var(--text);
+  background-color: var(--surface);
+  transition: border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background-color var(--theme-duration) var(--ease-out);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(29, 163, 151, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-tint-strong);
 }
 
 .form-group textarea {
@@ -125,26 +126,27 @@
 }
 
 .submit-btn {
-  background: var(--primary);
-  color: var(--white);
+  background: var(--accent);
+  color: var(--on-accent);
   border: none;
   padding: 1rem 1.5rem;
   border-radius: 25px;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.25s var(--ease-out), transform 0.25s var(--ease-out), box-shadow 0.25s var(--ease-out);
   width: fit-content;
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #179088;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(29, 163, 151, 0.2);
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
 
 .submit-btn:disabled {
-  background: #a0a0a0;
+  background: var(--border-strong);
+  color: var(--text-muted);
   cursor: not-allowed;
 }
 
@@ -160,8 +162,8 @@
   gap: 0.875rem;
   align-items: flex-start;
   padding: 1.25rem 1.5rem;
-  background: #e6f6f4;
-  color: #0f5f58;
+  background: var(--primary-tint);
+  color: var(--primary-strong);
 }
 
 .form-status.success div {
@@ -176,7 +178,7 @@
 
 .field-error {
   margin-top: 0.4rem;
-  color: #b91c1c;
+  color: var(--danger);
   font-size: 0.85rem;
 }
 
@@ -186,7 +188,7 @@
   align-items: flex-start;
   font-size: 0.9rem;
   line-height: 1.5;
-  color: var(--dark-gray);
+  color: var(--text);
   cursor: pointer;
 }
 
@@ -215,8 +217,8 @@
   display: block;
 }
 .form-status.error {
-  background: #fde8e8;
-  color: #b91c1c;
+  background: var(--danger-tint);
+  color: var(--danger);
 }
 
 .contact-info-card {
@@ -237,7 +239,7 @@
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: rgba(29, 163, 151, 0.1);
+  background: var(--primary-tint);
   color: var(--primary);
   display: flex;
   align-items: center;
@@ -245,7 +247,7 @@
 }
 
 .info-text h4 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 0.25rem;
@@ -253,7 +255,7 @@
 
 .info-text p,
 .info-text a {
-  color: var(--dark-gray);
+  color: var(--text);
   font-size: 0.95rem;
   text-decoration: none;
   line-height: 1.6;
@@ -271,7 +273,7 @@
   align-items: center;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
-  border-bottom: 1px solid var(--accent-subtle);
+  border-bottom: 1px solid var(--border);
 }
 
 .agent-photo {
@@ -283,14 +285,14 @@
 }
 
 .agent-contact-card h3 {
-  color: var(--navy);
+  color: var(--text-strong);
   font-weight: 600;
   font-size: 1.25rem;
   margin-bottom: 0.25rem;
 }
 
 .contact-info-wrapper .agent-contact-card p {
-  color: var(--dark-gray);
+  color: var(--text);
   font-size: 0.9rem;
   line-height: 1.5;
   margin-bottom: 1rem;
@@ -309,18 +311,18 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--white);
-  border: 1px solid var(--accent-subtle);
-  color: var(--dark-gray);
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s var(--ease-out), border-color 0.2s var(--ease-out), color 0.2s var(--ease-out), transform 0.2s var(--ease-out);
 }
 
 .social-icon:hover {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  color: var(--white);
-  transform: translateY(-2px);
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+  transform: translateY(-1px);
 }
 
 
@@ -355,18 +357,18 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #a0aec0; 
+  color: var(--text-muted);
   opacity: 1;
 }
 
 .form-group select {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--accent-subtle);
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 1rem;
-  color: var(--dark-gray);
-  background-color: var(--white);
+  color: var(--text);
+  background-color: var(--surface);
 
   appearance: none;
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
@@ -375,11 +377,11 @@
   background-size: 1.25em;
 }
 .form-group select:invalid {
-  color: #a0aec0;
+  color: var(--text-muted);
 }
 
 .form-group select:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(29, 163, 151, 0.15);
+  box-shadow: 0 0 0 3px var(--primary-tint-strong);
 }

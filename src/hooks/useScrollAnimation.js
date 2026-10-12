@@ -1,6 +1,6 @@
 import { useCallback, useRef } from 'react';
 
-const useScrollAnimation = (animationClass = 'animate__fadeInUp', threshold = 0.25) => {
+const useScrollAnimation = (delay = 0) => {
   const observerRef = useRef(null);
 
   return useCallback(
@@ -8,20 +8,20 @@ const useScrollAnimation = (animationClass = 'animate__fadeInUp', threshold = 0.
       observerRef.current?.disconnect();
       if (!node) return;
 
-      node.classList.add('pre-animate');
+      node.classList.add('reveal');
+      node.style.setProperty('--reveal-delay', `${delay}ms`);
       const observer = new IntersectionObserver(
         ([entry]) => {
           if (!entry.isIntersecting) return;
-          node.classList.remove('pre-animate');
-          node.classList.add('animate__animated', animationClass);
+          node.classList.add('is-visible');
           observer.disconnect();
         },
-        { threshold, rootMargin: '50px' },
+        { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
       );
       observer.observe(node);
       observerRef.current = observer;
     },
-    [animationClass, threshold],
+    [delay],
   );
 };
 

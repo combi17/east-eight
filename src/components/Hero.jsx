@@ -7,12 +7,12 @@ import DubaiSection from '../components/DubaiSection';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 
 const Hero = () => {
-    const serviceCard1Ref = useScrollAnimation('animate__fadeInUp', 0.25);
-    const serviceCard2Ref = useScrollAnimation('animate__fadeInUp', 0.5);
-    const serviceCard3Ref = useScrollAnimation('animate__fadeInUp', 0.6);
-    const serviceCard4Ref = useScrollAnimation('animate__fadeInUp', 0.25);
-    const serviceCard5Ref = useScrollAnimation('animate__fadeInUp', 0.5);
-    const serviceCard6Ref = useScrollAnimation('animate__fadeInUp', 0.6); 
+    const serviceCard1Ref = useScrollAnimation(0);
+    const serviceCard2Ref = useScrollAnimation(90);
+    const serviceCard3Ref = useScrollAnimation(180);
+    const serviceCard4Ref = useScrollAnimation(0);
+    const serviceCard5Ref = useScrollAnimation(90);
+    const serviceCard6Ref = useScrollAnimation(180);
 function animateCounters() {
     const counters = document.querySelectorAll('.stat-number');
     const observer = new IntersectionObserver((entries) => {

@@ -1,13 +1,68 @@
 :root {
-  --primary: #1da397;
-  --primary-strong: #12786f;
-  --primary-hover: #179088;
-  --navy: #2c3e50;
-  --dark-gray: #4a5568;
-  --light-gray: #f8f9fa;
-  --accent-subtle: #e2e8f0;
-  --white: #ffffff;
+  --brand: #1da397;
+  --gold: #d4af37;
+  --on-image: #ffffff;
   --font-sans: 'Inter Variable', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --theme-duration: 0.35s;
+
+  color-scheme: light;
+  accent-color: var(--primary);
+  --bg: #ffffff;
+  --bg-alt: #f8f9fa;
+  --surface: #ffffff;
+  --surface-sunken: #f1f4f6;
+  --border: #e2e8f0;
+  --border-strong: #ced4da;
+  --text: #4a5568;
+  --text-strong: #2c3e50;
+  --text-muted: #64748b;
+  --primary: #1da397;
+  --primary-hover: #179088;
+  --primary-strong: #12786f;
+  --primary-tint: rgba(29, 163, 151, 0.1);
+  --primary-tint-strong: rgba(29, 163, 151, 0.2);
+  --accent: #13807a;
+  --accent-hover: #0f6b66;
+  --on-accent: #ffffff;
+  --danger: #b91c1c;
+  --danger-tint: rgba(220, 53, 69, 0.08);
+  --header-bg: rgba(255, 255, 255, 0.92);
+  --scrim: rgba(15, 23, 32, 0.5);
+  --shadow-color: 215 30% 20%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.06), 0 2px 6px hsl(var(--shadow-color) / 0.06);
+  --shadow-md: 0 4px 12px hsl(var(--shadow-color) / 0.08), 0 2px 4px hsl(var(--shadow-color) / 0.05);
+  --shadow-lg: 0 18px 40px hsl(var(--shadow-color) / 0.14), 0 6px 12px hsl(var(--shadow-color) / 0.06);
+}
+
+/* Dark theme: raised surfaces get lighter, not darker. */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0d141b;
+  --bg-alt: #111a23;
+  --surface: #16212c;
+  --surface-sunken: #1b2733;
+  --border: #253443;
+  --border-strong: #33475a;
+  --text: #b4c0cc;
+  --text-strong: #edf2f6;
+  --text-muted: #8a99a8;
+  --primary: #2cc4b6;
+  --primary-hover: #3fd0c2;
+  --primary-strong: #4fd1c3;
+  --primary-tint: rgba(44, 196, 182, 0.12);
+  --primary-tint-strong: rgba(44, 196, 182, 0.22);
+  --accent: #2cc4b6;
+  --accent-hover: #4fd1c3;
+  --on-accent: #072522;
+  --danger: #f07a85;
+  --danger-tint: rgba(240, 122, 133, 0.1);
+  --header-bg: rgba(13, 20, 27, 0.86);
+  --scrim: rgba(0, 0, 0, 0.6);
+  --shadow-color: 210 50% 2%;
+  --shadow-sm: 0 1px 2px hsl(var(--shadow-color) / 0.4);
+  --shadow-md: 0 4px 14px hsl(var(--shadow-color) / 0.45);
+  --shadow-lg: 0 18px 44px hsl(var(--shadow-color) / 0.6);
 }
 
 *,
@@ -20,15 +75,17 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: var(--border-strong) var(--bg-alt);
 }
 
 body {
   font-family: var(--font-sans);
   line-height: 1.6;
-  color: var(--dark-gray);
-  background: var(--white);
+  color: var(--text);
+  background: var(--bg);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  transition: background-color var(--theme-duration) var(--ease-out), color var(--theme-duration) var(--ease-out);
 }
 
 button,
@@ -43,8 +100,34 @@ img {
 }
 
 ::selection {
-  background: rgba(29, 163, 151, 0.22);
-  color: var(--navy);
+  background: var(--primary-tint-strong);
+  color: var(--text-strong);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-alt);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border: 3px solid var(--bg-alt);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ThemeToggle animates the reveal itself. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
 
 input,
@@ -61,6 +144,38 @@ fieldset {
   border: none;
 }
 
+.reveal {
+  opacity: 0;
+  translate: 0 18px;
+  filter: blur(6px);
+  transition:
+    opacity 0.7s var(--ease-out) var(--reveal-delay, 0ms),
+    translate 0.9s var(--ease-out) var(--reveal-delay, 0ms),
+    filter 0.7s var(--ease-out) var(--reveal-delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  translate: 0 0;
+  filter: none;
+}
+
+.reveal-on-load {
+  animation: reveal-in 0.9s var(--ease-out) both;
+}
+
+.reveal-delay-1 { animation-delay: 0.12s; }
+.reveal-delay-2 { animation-delay: 0.24s; }
+.reveal-delay-3 { animation-delay: 0.36s; }
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    translate: 0 18px;
+    filter: blur(6px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -70,6 +185,13 @@ fieldset {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  .reveal {
+    filter: none;
+    translate: none;
   }
 }

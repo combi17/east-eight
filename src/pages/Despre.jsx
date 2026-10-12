@@ -94,11 +94,10 @@ const TimelineItem = ({ item, index }) => {
   });
 
   const alignment = index % 2 === 0 ? 'left' : 'right';
-  const animation = index % 2 === 0 ? 'animate__fadeInLeft' : 'animate__fadeInRight';
 
   return (
     <div 
-      className={`timeline-item-container ${alignment} ${inView ? `animate__animated ${animation}` : 'hidden-anim'}`}
+      className={`timeline-item-container ${alignment} reveal ${inView ? 'is-visible' : ''}`}
       ref={ref}
     >
       <div className="timeline-icon-wrapper">
@@ -171,8 +170,8 @@ const Despre = () => {
         <div className="despre-hero-overlay"></div>
         
         <div className="container">
-          <h1 className="despre-title animate__animated animate__fadeInDown">{t('despre.hero.titlu')}</h1>
-          <p className="despre-subtitle animate__animated animate__fadeInDown animate__delay-1s">
+          <h1 className="despre-title reveal-on-load">{t('despre.hero.titlu')}</h1>
+          <p className="despre-subtitle reveal-on-load reveal-delay-1">
             {t('despre.hero.subtitlu')}
           </p>
         </div>
@@ -180,13 +179,13 @@ const Despre = () => {
         <div className="hero-content-overlay">
           <div className="viziune-container">
             <div 
-              className="despre-section-text-card animate__animated animate__fadeInLeft"
+              className="despre-section-text-card reveal-on-load reveal-delay-2"
             >
               <h2>{t('despre.viziune.titlu')}</h2>
               <p>{t('despre.viziune.text')}</p>
             </div>
             <div 
-              className="despre-section-image-wrapper animate__animated animate__fadeInRight"
+              className="despre-section-image-wrapper reveal-on-load reveal-delay-3"
             >
               <img src={AGENT.photo} alt={`${AGENT.name}, ${AGENT.role}`} className="despre-section-image" />
             </div>
@@ -205,7 +204,7 @@ const Despre = () => {
         </div>
         
         <div 
-          className={`despre-section testimonials-section ${testimonialsInView ? 'animate__animated animate__fadeIn' : 'hidden-anim'}`}
+          className={`despre-section testimonials-section reveal ${testimonialsInView ? 'is-visible' : ''}`}
           ref={testimonialsRef}
         >
           <h2 className="section-title">Ce spun clienții noștri</h2>
@@ -230,7 +229,7 @@ const Despre = () => {
           ref={tranzactiiRef}
         >
           <h2 className="section-title">Cele mai importante tranzacții</h2>
-          <div className={`tranzactii-grid ${tranzactiiInView ? 'animate__animated animate__fadeInUp' : 'hidden-anim'}`}>
+          <div className={`tranzactii-grid reveal ${tranzactiiInView ? 'is-visible' : ''}`}>
             {tranzactii.map((item) => (
               <button
                 type="button"
